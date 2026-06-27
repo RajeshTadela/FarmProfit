@@ -1,5 +1,7 @@
 from fastapi import FastAPI
 from database import SessionLocal
+from models import Base
+from database import engine
 from models import Farmer
 from schemas import (
     FarmerCreate,
@@ -12,6 +14,8 @@ from models import DriverPayment
 from schemas import DriverPaymentCreate
 
 app = FastAPI()
+Base.metadata.create_all(bind=engine)
+
 
 @app.post("/farmers")
 def create_farmer(farmer: FarmerCreate):

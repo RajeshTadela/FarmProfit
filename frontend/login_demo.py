@@ -87,7 +87,7 @@ if st.session_state.page == "splash":
 elif st.session_state.page == "login":
 
     # response = requests.get(
-    # f"http://127.0.0.1:8000/farmer/{st.session_state.farmer_id}")
+    # f"https://farmprofit.onrender.com/farmer/{st.session_state.farmer_id}")
 
     # farmer = response.json()
     st.title("🔐 Login")
@@ -114,7 +114,7 @@ elif st.session_state.page == "login":
         }
 
         response = requests.post(
-            "http://127.0.0.1:8000/login",
+            "https://farmprofit.onrender.com/login",
             json=login_data
         )
 
@@ -213,7 +213,7 @@ elif st.session_state.page == "register":
             }
 
             response = requests.post(
-                "http://127.0.0.1:8000/register",
+                "https://farmprofit.onrender.com/register",
                 json=register_data
             )
 
@@ -250,12 +250,12 @@ elif st.session_state.page == "register":
 elif st.session_state.page == "dashboard":
 
     response = requests.get(
-        f"http://127.0.0.1:8000/farmer/{st.session_state.farmer_id}"
+        f"https://farmprofit.onrender.com/farmer/{st.session_state.farmer_id}"
     )
 
     farmer = response.json()
     land_response = requests.get(
-    f"http://127.0.0.1:8000/total-land/{st.session_state.farmer_id}")
+    f"https://farmprofit.onrender.com/total-land/{st.session_state.farmer_id}")
 
     land_data = land_response.json()
     col1, col2 = st.columns([5,1])
@@ -319,7 +319,7 @@ elif st.session_state.page == "dashboard":
         )
 
         fields_response = requests.get(
-    f"http://127.0.0.1:8000/farmer-fields/{st.session_state.farmer_id}"
+    f"https://farmprofit.onrender.com/farmer-fields/{st.session_state.farmer_id}"
         )
 
         fields = fields_response.json()
@@ -408,7 +408,7 @@ elif st.session_state.page == "dashboard":
     # Fields
 
         fields_response = requests.get(
-            f"http://127.0.0.1:8000/farmer-fields/{st.session_state.farmer_id}"
+            f"https://farmprofit.onrender.com/farmer-fields/{st.session_state.farmer_id}"
         )
 
         fields = fields_response.json()
@@ -426,7 +426,7 @@ elif st.session_state.page == "dashboard":
         # Drivers
 
         drivers_response = requests.get(
-            f"http://127.0.0.1:8000/drivers/{st.session_state.farmer_id}"
+            f"https://farmprofit.onrender.com/drivers/{st.session_state.farmer_id}"
         )
 
         drivers = drivers_response.json()
@@ -479,7 +479,7 @@ elif st.session_state.page == "dashboard":
                 }
 
                 response = requests.post(
-                    "http://127.0.0.1:8000/driver",
+                    "https://farmprofit.onrender.com/driver",
                     json=driver_data
                 )
 
@@ -551,7 +551,7 @@ elif st.session_state.page == "dashboard":
             }
 
             response = requests.post(
-    "http://127.0.0.1:8000/plowing",
+    "https://farmprofit.onrender.com/plowing",
     json=plowing_data
             )
 
@@ -570,7 +570,7 @@ elif st.session_state.page == "dashboard":
         st.subheader("💰 Driver Payment")
 
         drivers_response = requests.get(
-            f"http://127.0.0.1:8000/drivers/{st.session_state.farmer_id}"
+            f"https://farmprofit.onrender.com/drivers/{st.session_state.farmer_id}"
         )
 
         drivers = drivers_response.json()
@@ -630,7 +630,7 @@ elif st.session_state.page == "dashboard":
                 }
 
                 response = requests.post(
-                    "http://127.0.0.1:8000/driver-payment",
+                    "https://farmprofit.onrender.com/driver-payment",
                     json=payment_data
                 )
 
@@ -668,7 +668,7 @@ elif st.session_state.page == "dashboard":
     with st.expander("🚜 Plowing Records"):
 
         response = requests.get(
-            f"http://127.0.0.1:8000/plowing-records/{st.session_state.farmer_id}"
+            f"https://farmprofit.onrender.com/plowing-records/{st.session_state.farmer_id}"
         )
 
         records = response.json()
@@ -710,7 +710,7 @@ elif st.session_state.page == "dashboard":
     with st.expander("💰 Driver Payment Records"):
 
         response = requests.get(
-            f"http://127.0.0.1:8000/driver-payment-records/{st.session_state.farmer_id}"
+            f"https://farmprofit.onrender.com/driver-payment-records/{st.session_state.farmer_id}"
         )
 
         records = response.json()
@@ -737,7 +737,7 @@ elif st.session_state.page == "dashboard":
 elif st.session_state.page == "profile":
 
     response = requests.get(
-        f"http://127.0.0.1:8000/farmer/{st.session_state.farmer_id}"
+        f"https://farmprofit.onrender.com/farmer/{st.session_state.farmer_id}"
     )
 
     farmer = response.json()
@@ -771,7 +771,7 @@ elif st.session_state.page == "profile":
     st.subheader("🌾 My Fields")
 
     fields_response = requests.get(
-        f"http://127.0.0.1:8000/farmer-fields/{st.session_state.farmer_id}"
+        f"https://farmprofit.onrender.com/farmer-fields/{st.session_state.farmer_id}"
     )
 
     fields = fields_response.json()
@@ -823,7 +823,7 @@ elif st.session_state.page == "profile":
             ):
 
                 requests.delete(
-                    f"http://127.0.0.1:8000/field/{field['field_id']}"
+                    f"https://farmprofit.onrender.com/field/{field['field_id']}"
                 )
 
                 st.success(
@@ -868,7 +868,7 @@ elif st.session_state.page == "profile":
             }
 
             response = requests.put(
-                f"http://127.0.0.1:8000/field/{st.session_state.edit_field_id}",
+                f"https://farmprofit.onrender.com/field/{st.session_state.edit_field_id}",
                 json=update_data
             )
 
@@ -930,7 +930,7 @@ elif st.session_state.page == "profile":
             }
 
             response = requests.post(
-                "http://127.0.0.1:8000/fields",
+                "https://farmprofit.onrender.com/fields",
                 json=field_data
             )
 
@@ -963,7 +963,7 @@ elif st.session_state.page == "profile":
         }
 
         response = requests.put(
-            "http://127.0.0.1:8000/profile",
+            "https://farmprofit.onrender.com/profile",
             json=profile_data
         )
 

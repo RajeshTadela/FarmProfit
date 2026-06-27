@@ -55,9 +55,9 @@ class Driver(Base):
 
     farmer_id = Column(Integer, ForeignKey("farmers.farmer_id"))
 
-    driver_name = Column(String)
+    driver_name = Column(String(100))
 
-    mobile = Column(String)
+    mobile = Column(String(15))
 
     total_amount = Column(Float, default=0)
 
