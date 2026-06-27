@@ -42,7 +42,7 @@ class Field(Base):
     field_id = Column(Integer, primary_key=True, index=True)
     farmer_id = Column(Integer, ForeignKey("farmers.farmer_id"))
     field_name = Column(String(100))
-    area_acres = Column(Integer)
+    area_acres = Column(Float)
 
 from sqlalchemy import Date
 from sqlalchemy import DECIMAL

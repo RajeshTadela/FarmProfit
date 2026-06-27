@@ -908,9 +908,9 @@ elif st.session_state.page == "profile":
 
         new_area = st.number_input(
             "Area (Acres)",
-            min_value=0.1,
-            step=0.1,
-            key="new_field_area"
+            min_value=0.01,
+            step=0.01,
+            format="%.2f"
         )
 
         if st.button(
